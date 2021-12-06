@@ -1,0 +1,49 @@
+test.csv: 		File recorded from AD2 stored in csv format.  The data is from row 11 onwards.  
+			The RTL-SDR IF frequency is around 1.5MHz, so you should choose sampling rate based on Nyquist, i.e. 4MHz or more.
+			The sampling rate should be integer multiple of data rate.
+
+test.dat:		32-bit Float data binary file converted from test.csv to be used by opamp_file.grc and LTSPICE.
+
+time.dat:       32-bit Float data binary file converted from test.csv to be used by LTSPICE.
+
+csv2grcf.py:		Python file to convert test.csv to test.dat, readable by GNUradio, opamp_file.grc.
+
+fm-radio-grc.grc:	GNURadio grc file to receive FM radio using RTL-SDR Source.  You can use a wire to serve as
+			antenna.
+
+ook_pluto.grc:		GNURadio grc file to create OOK transceiver using Pluto Adalm Source and Sink.  For best performance,
+			set samp_rate to be about 8 times of fsym.  For example, fsym=200kSym/s, samp_rate=1.6M
+
+ook_pluto_rtlsdr.grc:	GNURadio grc file to create OOK transceiver using PlutoAdalm Sink and RTL-SDR Source.  For best 
+			performance, follow ook_pluto.grc instruction above.  RTL-SDR Source is used so that the IF signal
+			can be employed as opamp filter input.
+
+ook_pluto_tx.grc:	GNURadio grc file to create OOK transmitter using PlutoAdalm Sink.  For best performance, follow
+			ook_pluto.grc instruction above.
+
+ook_rtlsdr_rx.grc:	GNURadio grc file to create OOK receiver using RTL-SDR Source.  For best performance, follow
+			ook_pluto.grc instruction above.
+
+opamp_file.grc:		It will take "test.dat" and perform the OOK demodulation.  Set the sampling rate and data rate accordingly.
+
+spect_analyzer.grc:	GNURadio grc file to create a frequency chirp that sweep between -1MHz to 1MHz for the 
+			PlutoAdalm Sink, and capture the spectrum with "peak hold" using RTL-SDR Source.  Effectively, this
+			can be used to characterize the Antenna characteristic.
+
+Overview:		1. Launch ook_pluto_rtlsdr.grc to setup the OOK transmission. 
+                   (For windows user, you might need to launch ook_pluto_tx.grc and ook_rtlsdr_rx.grc)
+			2. Connect IF output from RTL-SDR dongle to your opamp filter input.
+			3. Connect your opamp filter output to AD2 "Channel 1".
+			4. Launch waveform to start collect data.
+			5. Store the data in "test.csv"
+			6. Execute "python csv2grcf.py" to convert "test.csv" to "test.dat"
+			7. Launch opamp_file.grc to start the demodulation.
+			8. For AD2 data recording:
+                i)   	Select "Settings->Device Manager->Option 2 (2x16k)" to maximize the buffer size.
+                ii)  	Change the "Mode" to "Record".
+                iii) 	Click "Config", choose "Samples" of "32768", "Rate" of "4MHz", "Base" of "7.5ms", and click "Start".
+                iv)  	You can repeatedly click "Record" button to capture the data.
+				v)		Under options, click "Zero Offset"
+                vi)   	Once done, select "File->Export".  Under "Data" tab, select "Save" and store the data into "test.csv".
+			9. The RTL-SDR IF frequency is at 1.5MHz, you should choose sampling rate of 4MHz (>Nyquist).
+			10. One thing that help is to maximize the data collection window.

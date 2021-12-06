@@ -1,0 +1,116 @@
+Circuit: * C:\Users\com2p\Desktop\TA\EE2033\2020_21 sem 2\Miniproject\LTSPICE\LPF.asc
+
+Warning: Multiple definitions of model "outputcir_vohvol_dideal" Type: Diode
+Warning: Multiple definitions of model "outputcir_isc_dideal" Type: Diode
+Warning: Multiple definitions of model "recoverycircuit_dideal" Type: Diode
+Warning: Multiple definitions of model "vinrange_dideal" Type: Diode
+V1: Removing PWL point (0.0008565,-0.00108188)
+V1: Removing PWL point (0.00126075,-0.00108188)
+V1: Removing PWL point (0.001603,0.00355123)
+V1: Removing PWL point (0.001738,0.00586779)
+V1: Removing PWL point (0.001743,0.00884621)
+V1: Removing PWL point (0.00250225,0.01017)
+V1: Removing PWL point (0.00285175,0.00983902)
+V1: Removing PWL point (0.0030025,0.00983902)
+V1: Removing PWL point (0.00307625,0.0118246)
+V1: Removing PWL point (0.00408825,0.00818434)
+V1: Removing PWL point (0.004094,0.01017)
+V1: Removing PWL point (0.0042085,0.00950809)
+V1: Removing PWL point (0.00421975,0.00983902)
+V1: Removing PWL point (0.004222,0.00950809)
+V1: Removing PWL point (0.00473775,0.00851528)
+V1: Removing PWL point (0.0050885,0.00388217)
+V1: Removing PWL point (0.00513075,0.00222749)
+V1: Removing PWL point (0.005156,0.000903742)
+V1: Removing PWL point (0.0052155,0.000903742)
+V1: Removing PWL point (0.0052185,0.000903742)
+V1: Removing PWL point (0.00522125,0.00288936)
+V1: Removing PWL point (0.005331,0.000903742)
+V1: Removing PWL point (0.005764,-0.00306749)
+V1: Removing PWL point (0.00581375,-0.00108188)
+V1: Removing PWL point (0.00609875,-0.00604592)
+V1: Removing PWL point (0.006277,-0.0077006)
+V1: Removing PWL point (0.0063795,-0.00869341)
+V1: Removing PWL point (0.00640875,-0.0103481)
+V1: Removing PWL point (0.00683775,-0.0100172)
+V1: Removing PWL point (0.00723675,-0.0136575)
+V1: Removing PWL point (0.0081005,-0.0176287)
+ERROR: Node U1:I0:I21:1:102 is floating and connected to current source G:U1:I0:I21:1:RA
+ERROR: Node U1:I0:I19:1:102 is floating and connected to current source G:U1:I0:I19:1:RA
+ERROR: Node U1:I0:I19:1:302 is floating and connected to current source G:U1:I0:I19:1:RC
+
+u1:vpd: Missing value, assumed 0V @ DC
+u1:i0:vprobe2: Missing value, assumed 0V @ DC
+u1:i0:vprobe1: Missing value, assumed 0V @ DC
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Increasing initial diagonal Gmin to 100
+Gmin = 100
+Gmin = 10.7374
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+Gmin = 11.5662
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+vernier = 0.00390625
+Gmin = 11.5992
+vernier = 0.00195313
+vernier = 0.000976563
+vernier = 0.000488281
+Gmin = 0
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 18.9394%
+Source Step = 26.5152%
+Source Step = 34.0909%
+Source Step = 34.8958%
+Source Step = 35.2865%
+Source Step = 35.3308%
+Source Step = 35.3604%
+Source Step = 35.39%
+Source Step = 35.4196%
+Source Step = 35.4492%
+Source Step = 35.4788%
+Source Step = 35.5084%
+Source Step = 35.538%
+Source Step = 35.5676%
+Source Step = 35.5972%
+Source Step = 35.6268%
+Source Step = 35.6564%
+Source Step = 35.686%
+Starting source stepping with srcstepmethod=1
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source stepping succeeded in finding the operating point.
+
+
+Date: Thu Jan 07 09:42:20 2021
+Total elapsed time: 25.230 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 838525
+traniter = 833672
+tranpoints = 414661
+accept = 341815
+rejected = 72846
+matrix size = 180
+fillins = 276
+solver = Normal
+Thread vector: 61.2/37.0[4] 2.2/4.0[1] 18.4/5.1[4] 2.3/7.6[1]  2592/500
+Matrix Compiler1: 15.78 KB object code size  4.8/2.3/[1.1]
+Matrix Compiler2: 16.76 KB object code size  10.6/19.0/[3.3]
+
